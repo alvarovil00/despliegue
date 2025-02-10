@@ -72,19 +72,7 @@ public class ListarProductosServlet extends HttpServlet {
         response.setContentType("text/html<charset=UTF-8");
 
 
-        // ORDENACIONES========================================
-        //Collections.sort(productos); //ordenacion por codigo ascendente
-        //Collections.reverse(productos); // productos por codigo descendente
-        //productos.sort(Comparator.naturalOrder()); // por codigo ascendente
-        //productos.sort(Comparator.reverseOrder());; // por codigo descendente
 
-        //ORDENAR POR NOMBRE DE PRODUCTO
-        //productos.sort(new ComparatorProdByName()); // por nombre ascendente
-        //productos.sort(new ComparatorProdByName().reversed()); // por nombre descendente
-
-        //productos.sort((p1,p2) -> p1.getNombre().compareTo(p2.getNombre()));
-
-        //productos.sort((p1,p2) -> Float.compare(p1.getPrecio(), p2.getPrecio()));
         
         productos.sort(new ComparatorProdByName().thenComparing((p1,p2) -> Float.compare(p1.getPrecio(),p2.getPrecio())));
         
